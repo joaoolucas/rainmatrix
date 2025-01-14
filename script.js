@@ -7,8 +7,6 @@ class MatrixRain {
         this.columns = 0;
         this.drops = [];
         this.speed = 15;
-        this.isPaused = false;
-        this.interactionCount = 0;
 
         this.resize();
         this.setupEventListeners();
@@ -33,20 +31,6 @@ class MatrixRain {
     setupEventListeners() {
         window.addEventListener('resize', () => this.resize());
         
-        this.canvas.addEventListener('mousemove', (e) => {
-            const column = Math.floor(e.clientX / this.fontSize);
-            this.drops[column] = 0;
-            this.interactionCount++;
-            
-            if (this.interactionCount > 50) {
-                document.querySelector('.hidden-message').classList.add('show');
-                setTimeout(() => {
-                    document.querySelector('.hidden-message').classList.remove('show');
-                }, 3000);
-                this.interactionCount = 0;
-            }
-        });
-
         document.querySelectorAll('.speed-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const speed = e.target.dataset.speed;
@@ -56,14 +40,6 @@ class MatrixRain {
                     case 'extreme': this.speed = 5; break;
                 }
             });
-        });
-
-        this.canvas.addEventListener('mouseenter', () => {
-            this.isPaused = true;
-        });
-
-        this.canvas.addEventListener('mouseleave', () => {
-            this.isPaused = false;
         });
     }
 
@@ -75,8 +51,6 @@ class MatrixRain {
         this.ctx.font = this.fontSize + 'px monospace';
 
         for (let i = 0; i < this.drops.length; i++) {
-            if (this.isPaused) continue;
-            
             const text = this.characters[Math.floor(Math.random() * this.characters.length)];
             this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
 

@@ -46,4 +46,40 @@ canvas {
 
 .hidden-message.show {
     opacity: 1;
-} 
+}
+
+.coming-soon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0f0;
+    font-size: 2em;
+    text-align: center;
+    z-index: 100;
+    text-shadow: 0 0 10px #0f0;
+}
+
+.coming-soon h1 {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 5px;
+}
+
+.social-links {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.social-links a {
+    color: #0f0;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #0f0;
+}

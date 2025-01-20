@@ -47,6 +47,14 @@ canvas {
 .coming-soon h1 {
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.coming-soon h2 {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 5px;
+    font-size: 0.8em;
+    margin-top: 10px;
 }
 
 .social-links {
